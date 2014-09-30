@@ -1,13 +1,15 @@
+require 'open-uri'
+
 class Rakkausp
 
   def initialize
     names = []
-    File.readlines(ARGV[0]).each do |line|
+    f = open('http://reaktor.fi/wp-content/uploads/2014/08/fast_track_generoitu_nimilista.txt')
+    f.each_line do |line|
       names.push(line.delete("\n"))
     end
     @listnames = names
   end
-
 
   def calculateallrp
     rakkaustotal = []
@@ -34,9 +36,7 @@ class Rakkausp
     while pairs.length > 2 do
       pairs = calculaterppairs(pairs)
     end
-
     return pairs[0]*10 + pairs[1]
-
   end
 
   def calculaterppairs(pairs)
@@ -49,7 +49,6 @@ class Rakkausp
     return newpairs
   end
 
-
   def supersum(x,y)
     if x + y < 10
       return x+y
@@ -57,7 +56,6 @@ class Rakkausp
       return (x+y)/10 + (x+y).modulo(10)
     end
   end
-
 end
 
 g = Rakkausp.new()
