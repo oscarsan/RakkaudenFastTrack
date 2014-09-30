@@ -8,17 +8,6 @@ class Rakkausp
     @listnames = names
   end
 
-  def printer
-    puts "#{@listnames}"
-  end
-
-  def extract(index)
-    return @listnames[index]
-  end
-
-  def get
-    return @listnames
-  end
 
   def CalculateAll
     rakkaustotal = []
