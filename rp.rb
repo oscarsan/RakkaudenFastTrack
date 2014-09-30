@@ -9,20 +9,19 @@ class Rakkausp
   end
 
 
-  def CalculateAll
+  def calculateallrp
     rakkaustotal = []
     @listnames.each_with_index do |name1, index1|
       if index1 < @listnames.length - 1
         @listnames[(index1+1)..-1].each do |name2|
-          rakkaustotal.push({:rp => comparenames(name1, name2), :name1 =>  name1, :name2 => name2})
+          rakkaustotal.push({:rp => calculaterbnames(name1, name2), :name1 =>  name1, :name2 => name2})
         end
       end
     end
     return rakkaustotal
   end
 
-
-  def comparenames(name1, name2)
+  def calculaterbnames(name1, name2)
     total = name1.downcase + name2.downcase;
     pairs = []
     pairs.push(total.count('p'))
@@ -31,16 +30,16 @@ class Rakkausp
     pairs.push(total.count('r'))
     pairs.push(total.count('s'))
 
-    pairs = calculaterp(pairs)
+    pairs = calculaterppairs(pairs)
     while pairs.length > 2 do
-      pairs = calculaterp(pairs)
+      pairs = calculaterppairs(pairs)
     end
 
     return pairs[0]*10 + pairs[1]
 
   end
 
-  def calculaterp(pairs)
+  def calculaterppairs(pairs)
     newpairs = []
     pairs.each_with_index do |value, index|
       if index < pairs.length - 1
