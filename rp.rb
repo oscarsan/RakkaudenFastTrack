@@ -21,9 +21,6 @@ class Rakkausp
     return rakkaustotal
   end
 
-  def comparetest
-    return comparenames(@listnames[0], @listnames[1])
-  end
 
   def comparenames(name1, name2)
     total = name1.downcase + name2.downcase;
