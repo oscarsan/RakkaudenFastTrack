@@ -16,6 +16,10 @@ class Rakkausp
     return @listnames[index]
   end
 
+  def get
+    return @listnames
+  end
+
   def comparetest
     return comparenames(@listnames[0], @listnames[1])
   end
