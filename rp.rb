@@ -60,3 +60,8 @@ class Rakkausp
 
 end
 
+g = Rakkausp.new()
+list = g.calculateallrp
+total99 = list.select{|list| list[:rp] == 99}
+puts "teilla on " + total99.length.to_s + " kella rakkaus on 99!"
+
