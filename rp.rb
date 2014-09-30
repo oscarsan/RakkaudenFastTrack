@@ -2,7 +2,7 @@ class Rakkausp
 
   def initialize
     names = []
-    File.readlines('file').each do |line|
+    File.readlines('fast_track_generoitu_nimilista.txt').each do |line|
       names.push(line.delete("\n"))
     end
     @listnames = names
