@@ -20,6 +20,18 @@ class Rakkausp
     return @listnames
   end
 
+  def CalculateAll
+    rakkaustotal = []
+    @listnames.each_with_index do |name1, index1|
+      if index1 < @listnames.length - 1
+        @listnames[(index1+1)..-1].each do |name2|
+          rakkaustotal.push({:rp => comparenames(name1, name2), :name1 =>  name1, :name2 => name2})
+        end
+      end
+    end
+    return rakkaustotal
+  end
+
   def comparetest
     return comparenames(@listnames[0], @listnames[1])
   end
